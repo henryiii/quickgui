@@ -9,5 +9,5 @@ setup(name='QuickGUI',
       description='Simple and fast gui with several backends.',
       author='Henry Schreiner III',
       author_email='henryiii@physics.utexas.edu',
-      packages=['quickgui','quickgui.backends'],
+      packages=['quickgui'],
       )

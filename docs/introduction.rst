@@ -13,7 +13,7 @@ Finally, this module should follow standard distribution and install procedures,
 Design
 ------
 The design chosen was to use several independent implementations in a submodule, and to import those into the main module using a function. This has a low learning curve for new maintainers, avoids a class-based interface, and keeps the code clean. Downsides over using abstract base classes and implementations primarily come from manually making sure each gui function behaves in the same manor. Documentation, defining the basic structure and common arguments to each function, provides the
-template on which the four implementations are built. Each function also accepts extra keyword arguments, and any keyword arguments that are not used are ignored. This allows specialization for a backend that does not interfere with another backend.
+template on which the four implementations are built. Each function also accepts extra keyword arguments, and any keyword arguments that are not used are ignored. This allows specialization for one backend that does not interfere with another backend.
 
 Alternatives
 ------------
