@@ -5,7 +5,7 @@ from __future__ import print_function, unicode_literals, division
 
 import sys
 
-try: # Py2
+try:
     from PySide import QtGui
 except ImportError:
     try:
@@ -15,7 +15,7 @@ except ImportError:
 
 TITLE='QuickGUI'
 
-root = QtGui.QApplication(sys.argv[0])
+root = QtGui.QApplication([sys.argv[0]])
 
 def ask_yn(msg='Answer yes or no',title=TITLE, **kargs):
     quest = QtGui.QMessageBox()
@@ -23,5 +23,5 @@ def ask_yn(msg='Answer yes or no',title=TITLE, **kargs):
     quest.setText(msg)
     quest.setStandardButtons(QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
     quest.setDefaultButton(QtGui.QMessageBox.Yes)
-    ans = quest.exec_() == QtGui.QMessageBox.Yes
-    return ans
+    ans = quest.exec_()
+    return ans == QtGui.QMessageBox.Yes
