@@ -7,8 +7,6 @@ _backend = None
 def init(system=None):
     if system is None or system.lower() == 'auto':
         _init_auto()
-    elif system.lower() == 'ipython':
-        _init_ipython()
     elif system.lower() == 'simple':
         _init_simple()
     elif system.lower() == 'curses' or system.lower() == 'dialog':
@@ -36,9 +34,10 @@ def _init_auto():
 
 # Importing functions
 def _init_qt():
-    raise ImportError()
-def _init_ipython():
-    raise ImportError()
+    import quickgui.backends.quickqt as quick
+    _init_any(quick)
+    global _backend
+    _backend = 'qt'
 def _init_dialog():
     import quickgui.backends.quickdialog as quick
     _init_any(quick)
@@ -50,7 +49,10 @@ def _init_simple():
     global _backend
     _backend = 'simple'
 def _init_tkinter():
-    raise ImportError()
+    import quickgui.backends.quicktkinter as quick
+    _init_any(quick)
+    global _backend
+    _backend = 'tkinter'
 
 # Loading process
 def _init_any(quick):
